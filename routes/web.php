@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
+use App\Http\Controllers\Admin\PostController as PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\Admin\DashboardController as DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // MODIFICHIAMO QUESTA ROTTA PERCHE ABBIAMO UN CONTROLLER CHE CI SOSTITUISCE LA VIEW
 // Route::get('/dashboard', function () {
@@ -29,6 +28,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('posts', PostController::class)->parameters(['posts'=> 'post:slug']);
 });
 
  
