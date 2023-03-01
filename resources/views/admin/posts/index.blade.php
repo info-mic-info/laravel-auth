@@ -28,7 +28,12 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
-                    <td>{{$post->action}}</td>
+                    <td>
+                        <a href="{{ route('admin.posts.show', $post->slug)}}" title="Visualizza post" class="btn btn-square">
+                            
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td>
                   
                 </tr>
                 @endforeach
