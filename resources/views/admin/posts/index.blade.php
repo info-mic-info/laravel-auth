@@ -10,6 +10,11 @@
                 <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Aggiungi post</a>
             </div>
         </div>
+        @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message')}}
+        </div>
+        @endif
         <table class="table table-striped">
             <thead>
                 <th>Id</th>
