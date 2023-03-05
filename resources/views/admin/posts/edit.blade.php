@@ -20,9 +20,9 @@
                     @method('PUT')
             <div class="form-group">
                  <label class="control-label">
-                    Titolo
+                    Autore
                  </label>
-                 <input type="text" class="form-control" placeholder="Titolo" id="title" name="title" value="{{old('title') ?? $post->title}}">
+                 <input type="text" class="form-control" placeholder="Autore" id="author" name="author" value="{{old('author') ?? $post->author}}">
                  @error('title')
                  <div class=text-danger>{{$message}}</div>
                  @enderror

@@ -10,6 +10,9 @@
         </div>
         <div class="col-12">
             <p><strong>Slug:</strong>{{$post->slug}}</p>
+            <p><strong>Autore:</strong>{{$post->author}}</p>
+            <label class="d-block"><strong>Riassunto:</strong></label>
+            <p>{{$post->excerpt}}</p>
             <label class="d-block"><strong>Contenuto:</strong></label>
             <p>{{$post->content}}</p>
 

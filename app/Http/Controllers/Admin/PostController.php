@@ -43,6 +43,11 @@ class PostController extends Controller
 
         $slug = Post::generateSlug($request->title);
 
+        $except= '';
+        if($request->content != ''){
+            $excerpt = substr($request->content, 0 , 147). '...';
+        }
+
         $form_data['slug'] = $slug;
 
         $newPost = new Post();
@@ -86,7 +91,16 @@ class PostController extends Controller
         $form_data = $request->validated();
 
         $slug = Post::generateSlug($request->title, '-');
+
+        $except= '';
+        if($request->content != ''){
+            $excerpt = substr($request->content, 0 , 147). '...';
+        }
+     
         $form_data['slug'] = $slug;
+
+        $form_data['excerpt'] = $excerpt;
+
 
         $post->update($form_data);
 
